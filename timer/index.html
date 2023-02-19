@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .background {
+            /* background-image: url('https://images.wallpaperscraft.ru/image/single/les_tuman_derevia_153079_3840x2400.jpg');
+            background-size: cover;
+            background-repeat: no-repeat; */
+            background: rgba(1,1,1, 0.98);
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+
+        .pl-10 {
+            padding-left: 10px;
+        }
+
+        span {
+            font-size: 100px;
+            color: #fff;
+            padding-top: 20px;
+        }
+        .time-flex {
+            display: flex;
+            max-width: 1180px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 120px;
+            display: none;
+        }
+        .timer {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: 160px;
+            color: snow;
+            padding: 0 20px;
+            
+        }
+
+        .timer__index {
+            font-size: 70px;
+            
+        }
+
+
+
+        .span {
+            display: none;
+        }
+
+        .title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+            color: snow;
+            text-align: center;
+            font-size: 54px;
+            padding-top: 150px;
+            text-transform: uppercase;
+        }
+        
+    
+        
+        @media only screen and ( max-width: 1600px) {
+            .timer {
+                font-size: 140px;
+            }
+
+            .time-flex {
+                max-width: 1050px;
+                padding-top: 100px;
+            }
+
+            span {
+                font-size: 90px;
+            }
+
+            .timer__index {
+                font-size: 60px;
+            }
+        }
+    
+ 
+    
+    
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="title">До Егэ осталось:</div>
+        <div class="time-flex">
+            <div class="time-flex__items timer">
+                <div class="timer__day"></div>
+                <div class="timer__index">дней</div>
+            </div>
+            <span class="pl-10">:</span>
+            <div class="time-flex__items timer">
+                <div class="timer__hours"></div>
+                <div class="timer__index">часов</div>
+            </div>
+            <span class="pl-10">:</span>
+            <div class="time-flex__items timer">
+                <div class="timer__minutes"></div>
+                <div class="timer__index">минуты</div>
+            </div>
+            <span>:</span>
+            <div class="time-flex__items timer">
+                <div class="timer__seconds"></div>
+                <div class="timer__index">секунды</div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        // const getTimer = new Date('July, 15, 2023, 00:00:00');
+
+        // const animationInterval = () => {
+        //     const date = new Date();
+        //     let cof = getTimer - date;
+
+        //     let day = Math.floor(cof / 1000 / 300 / 60 / 24);
+        //     let hour = Math.floor(cof / 1000 / 60 / 60) % 24;
+        //     let minutes = Math.floor(cof / 1000 / 60) % 60;
+        //     let seconds = Math.floor(cof / 1000) % 60;
+
+        //     const resultDay = document.querySelector('.timer__day').innerHTML = day;
+        //     const resultHours = document.querySelector('.timer__hours').innerHTML = hour;
+        //     const resultMinutes = document.querySelector('.timer__minutes').innerHTML = minutes;
+        //     const resultSeconds = document.querySelector('.timer__seconds').innerHTML = seconds;
+
+        //     let flex = document.querySelector('.time-flex').style.display = 'flex';
+
+        // };
+
+        // setInterval(animationInterval,1000);
+
+        const getTimer = new Date('May, 29, 2023, 00:00:00');
+
+const animationInterval = () => {
+    const date = new Date();
+    let cof = getTimer - date;
+
+    let day = Math.floor(cof /(1000 * 60 * 60 * 24)); 
+    let hour = Math.floor((cof %(1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((cof % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((cof %(1000 * 60)) / 1000);
+
+    const resultDay = document.querySelector('.timer__day').innerHTML = day;
+    const resultHours = document.querySelector('.timer__hours').innerHTML = hour;
+    const resultMinutes = document.querySelector('.timer__minutes').innerHTML = minutes;
+    const resultSeconds = document.querySelector('.timer__seconds').innerHTML = seconds;
+
+    let flex = document.querySelector('.time-flex').style.display = 'flex';
+
+};
+
+    setInterval(animationInterval,1000);
+
+    </script>
+</body>
+</html>
